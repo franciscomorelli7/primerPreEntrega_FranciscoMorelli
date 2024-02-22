@@ -12,11 +12,28 @@ app.use(express.urlencoded({extended: true}))
 app.get("/products", async(req,res)=>{
     res.send(await products.getProducts())
 })
+app.get("/products/:id", async(req,res)=>{
+    let id = req.params.id
+     res.send(await products.getProductById(id))
+})
+
 
 app.post("/products", async(req, res)=>{
     let nuevoProducto = req.body;
     res.send (await products.agregarProductos(nuevoProducto))
 })
+
+app.delete("/products/:id", async (req,res)=>{
+    let id = req.params.id
+     res.send(await products.deleteProductsById(id))
+})
+
+app.put("/products/:id", async (req,res)=>{
+    let id = req.params.id
+    let updateBody = req.body
+    res.send(await products.updateProductsById(id,updateBody))
+})
+
 
 app.listen (PORT, () => {
     console.log(`Servidor express en puerto ${PORT}`)
