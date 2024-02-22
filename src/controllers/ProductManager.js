@@ -1,5 +1,6 @@
 import {promises as fs} from "fs"
 import {nanoid} from "nanoid"
+
 class ProductManager{
     constructor(){
         this.path="./src/models/products.json"
@@ -13,7 +14,7 @@ class ProductManager{
 
     productosExistentes=async(id)=>{
         let products = await this.leerProductos();
-        return products.some(prod => prod.id===id)
+        return products.find(prod => prod.id===id)
     }
 
     writeProducts = async(product)=>{
@@ -63,6 +64,7 @@ class ProductManager{
         }
        
     }
+    
 }
 
 
