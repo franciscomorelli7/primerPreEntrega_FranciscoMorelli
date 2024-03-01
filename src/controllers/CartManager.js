@@ -7,7 +7,7 @@ const todosLosProductos = new ProductManager
 
 class CartManager {
     constructor(){
-        this.path = "./src/models/cart.json"
+        this.path = "./models/Cart.json"
     }
 
 
