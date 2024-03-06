@@ -1,9 +1,10 @@
 import {promises as fs} from "fs"
 import {nanoid} from "nanoid"
+import __dirname from "../utils.js"
 
 class ProductManager{
     constructor(){
-        this.path="./models/products.json"
+        this.path = `${__dirname}/models/products.json`
     }
 
     leerProductos =async()=>{

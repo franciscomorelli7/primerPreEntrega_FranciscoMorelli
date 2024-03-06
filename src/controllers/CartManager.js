@@ -1,13 +1,13 @@
 import {promises as fs} from "fs"
 import {nanoid} from "nanoid"
 import ProductManager from "./ProductManager.js"
-
+import __dirname from "../utils.js"
 
 const todosLosProductos = new ProductManager
 
 class CartManager {
     constructor(){
-        this.path = "./models/Cart.json"
+        this.path = `${__dirname}/models/cart.json`
     }
 
 
